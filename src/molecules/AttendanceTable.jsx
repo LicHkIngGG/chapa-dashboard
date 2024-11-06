@@ -1,17 +1,26 @@
 import React from 'react';
-import TabItem from '../atoms/TabItem';
 
-const TabBar = ({ tabs, activeTab, onTabChange }) => (
-    <div className="tab-bar">
-        {tabs.map((tab) => (
-            <TabItem
-                key={tab.id}
-                isActive={tab.id === activeTab}
-                label={tab.label}
-                onClick={() => onTabChange(tab.id)}
-            />
-        ))}
-    </div>
+const AttendanceTable = ({ records }) => (
+    <table className="attendance-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Hora</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {records.map((record) => (
+                <tr key={record.id}>
+                    <td>{record.id}</td>
+                    <td>{record.name}</td>
+                    <td>{record.time}</td>
+                    <td>{record.date}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
 );
 
-export default TabBar;
+export default AttendanceTable;
